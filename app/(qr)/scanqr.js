@@ -14,8 +14,8 @@ export default function Scanqr() {
     const [text, setText] = useState("");
     const [busId, setBusId] = useState(null);
     const busData = useBusIdContext();
-    const busList = useBusListContext();
     const setBusData = useBusIdToggleContext();
+    const busList = useBusListContext();
     
    if (!permission) {
      requestPermission();
@@ -30,13 +30,18 @@ export default function Scanqr() {
     }, []);
 
      const handleBarCodeScanned = async ({ type, data }) => {
-       if (data == busId) return ;
-       setBusId(data);
+       if (JSON.parse(data)._id == busId) return ;
+       setBusId(JSON.parse(data)._id);
        let found = false;
        try{
          busList.map((bus) => {
-           if(bus._id == data){
-             setBusData(bus)
+           if(bus._id == JSON.parse(data)._id){
+             setBusData({
+              _id: bus._id,
+              numero: bus.numero,
+              fecha: JSON.parse(data).date,
+              iteracion: JSON.parse(data).number,
+             })
              console.log(bus)
             found = true;
             }

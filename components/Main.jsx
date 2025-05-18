@@ -239,6 +239,7 @@ export function Main() {
             timestamp_telefono: utcDate,
             timestamp_salida: selectedTime,
             id_fiscal: user?._id,
+            qr_id: `${busData.fecha}-${busData.iteracion}`,
           };
 
           // Intentar enviar la petición
@@ -295,7 +296,9 @@ export function Main() {
             timestamp_telefono: utcDate,
             timestamp_salida: selectedTime,
             id_fiscal: user?._id,
+            qr_id: `${busData.fecha}-${busData.iteracion}`,
           };
+          console.log(request, "request");
 
           // Intentar enviar la petición
           // const sent = await sendRequest(request);

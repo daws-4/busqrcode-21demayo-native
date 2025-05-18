@@ -103,7 +103,7 @@ export function Login() {
       </View>
       <View>
         <Text className="text-black text-black/90 text-center">
-          © {now.getFullYear()} {linea} ver.1.1.9test2
+          © {now.getFullYear()} {linea} ver.1.2
         </Text>
       </View>
       <StatusBar style="dark" />
