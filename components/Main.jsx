@@ -26,7 +26,7 @@ import { Picker } from "@react-native-picker/picker";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import axios from "axios";
 import { API } from "@env";
-import { Link } from "expo-router";
+import { Link, Redirect } from "expo-router";
 import { DeleteIcon } from "../components/Icons";
 import NetInfo from "@react-native-community/netinfo";
 export function Main() {
@@ -407,7 +407,9 @@ export function Main() {
     const strHours = String(hours).padStart(2, "0");
     return `${strHours}:${minutes} ${ampm}`;
   };
-
+if (!user) {
+  return <Redirect href="/" />;
+}
   return (
     <ScrollView>
       <Screen>

@@ -69,7 +69,9 @@ export default function Scanqr() {
        console.log(flash);
      };
 
-
+     if (!user) {
+       return <Redirect href="/" />;
+     }
     return (
       <Screen>
         <ScrollView>

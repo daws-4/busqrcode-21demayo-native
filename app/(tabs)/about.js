@@ -21,7 +21,9 @@ export default function About() {
   const logout = useUserLogoutContext();
   const rutas = useRutaContext();
   const user = useUserContext();
-
+  if (!user) {
+    return <Redirect href="/" />;
+  }
   return (
     <Screen>
       <ScrollView>
